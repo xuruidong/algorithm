@@ -44,6 +44,11 @@ sum = (n+1)*n/2
 递归程序的时间复杂度  
 [主定理(Master Theorem)](https://zhuanlan.zhihu.com/p/113406812)
 
+记住常见的算法时间复杂度
+
+lesson 4
+右侧 Topic 已经分类
+
 ---
 
 
