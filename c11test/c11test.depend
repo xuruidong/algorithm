@@ -1,0 +1,48 @@
+# depslib dependency file v1.0
+1613811841 source:f:\xrd\c_cpp\test\c11test\main.cpp
+	<iostream>
+	<memory>
+	<windows.h>
+	<vector>
+	<random>
+	<algorithm>
+	<queue>
+	"utils.h"
+
+1613626680 f:\xrd\c_cpp\test\c11test\utils.h
+
+1613626731 source:f:\xrd\c_cpp\test\c11test\utils.cpp
+	<iostream>
+	<vector>
+
+1613808606 source:f:\xrd\c_cpp\test\c11test\heap.cpp
+	<vector>
+	"heap.h"
+
+1613808646 f:\xrd\c_cpp\test\c11test\heap.h
+
+1613626731 source:f:\xrd\note\algorithm\c11test\utils.cpp
+	<iostream>
+	<vector>
+
+1614069261 source:f:\xrd\note\algorithm\c11test\heap.cpp
+	<vector>
+	<iostream>
+	"heap.h"
+	"utils.h"
+
+1614066225 f:\xrd\note\algorithm\c11test\heap.h
+
+1614073446 source:f:\xrd\note\algorithm\c11test\main.cpp
+	<iostream>
+	<memory>
+	<windows.h>
+	<vector>
+	<random>
+	<algorithm>
+	<queue>
+	"utils.h"
+	"heap.h"
+
+1613626680 f:\xrd\note\algorithm\c11test\utils.h
+

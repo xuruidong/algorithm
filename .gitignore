@@ -1,0 +1,8 @@
+*.o
+test/
+log/
+*.pyc
+CVS
+bin
+obj
+
