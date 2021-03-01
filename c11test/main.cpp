@@ -8,6 +8,8 @@
 
 #include "utils.h"
 #include "heap.h"
+#include "merge_sort.h"
+
 using namespace std;
 
 struct demo{
@@ -119,17 +121,85 @@ int priority_queue_test()
     return 0;
 }
 
+/*
+ 给定一个数组arr，和一个数num，请把小于等于num的数放在数
+组的左边，大于num的数放在数组的右边。
+要求额外空间复杂度O(1)，时间复杂度O(N)
+ */
+ int testfunc(std::vector<int> &nums, int num)
+ {
+     int left=0, right = 0;
+     if(nums.size() < 2){
+        return 0;
+     }
+     left = 0;
+     right = nums.size()-1;
+     while(left<right){
+        //left++;
+        if(nums[left]>num){
+            std::swap(nums[left], nums[right--]);
+        }
+        else{
+            ++left;
+        }
+     }
+     return 0;
+ }
+
+ /*
+  给定一个数组arr，和一个数num，请把小于num的数放在数组的
+左边，等于num的数放在数组的中间，大于num的数放在数组的
+右边。
+要求额外空间复杂度O(1)，时间复杂度O(N)
+ */
+int NetherlandsFlag(std::vector<int> &nums, int num)
+{
+    if(nums.size() < 2){
+        return 0;
+    }
+    int left = -1;
+    int mid = 0;
+    int right = nums.size()-1;
+    while(mid <= right){      // mid < right
+        if(nums[mid] < num){
+            std::swap(nums[mid++], nums[++left]);
+        }
+        else if(nums[mid] > num){
+            std::swap(nums[mid], nums[right--]);
+        }
+        else{
+            mid++;
+        }
+    }
+    return 0;
+}
+
+int test(int a[]){
+    std::cout<<sizeof(a)<<std::endl;
+    return 0;
+}
+
 int main()
 {
     srand(time(NULL));
     std::cout << "Hello world!" << endl;
     //priority_queue_test();
-    //return 0;
 
-    int test_num = 10000;
+    int a[100];
+    test(a);
+    return 0;
+
+#if 1
+    std::vector<int> vtmp = {29,45,9,46,9,21,6,4,21,21,21};
+    //heap_sort(vtmp, vtmp.size());
+    //testfunc(vtmp, 44);
+    NetherlandsFlag(vtmp, 21);
+    vector_print(vtmp);
+#else
+    int test_num = 500000;
 
     while(test_num-- >0){
-        std::vector<int> *nums = generateRandomArray(10, 50);
+        std::vector<int> *nums = generateRandomArray(20, 150);
         std::vector<int> n1(*nums);
         std::vector<int> n2(*nums);
 
@@ -137,13 +207,14 @@ int main()
         //bubble_sort(n2);
         //select_sort2(n2);
         //insert_sort(n2);
-        heap_sort(n2, n2.size());
+        //heap_sort(n2, n2.size());
+        merge_sort(n2, 0, n2.size()-1);
         for(std::vector<int>::size_type i=0; i<n1.size(); ++i){
             if(n1[i] != n2[i]){
                 vector_print(*nums);
                 vector_print(n1);
                 vector_print(n2);
-                std::cout<<"========= "<<i<<std::endl;
+                std::cout<<"========= "<<test_num<<std::endl;
                 return -1;
                 break;
             }
@@ -151,7 +222,7 @@ int main()
         delete nums;
         //std::cout<<"-";
     }
-
+#endif
 
     //Sleep(1000);
 

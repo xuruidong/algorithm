@@ -35,6 +35,10 @@
 		<Unit filename="heap.cpp" />
 		<Unit filename="heap.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="merge_sort.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="mergesort.cpp" />
 		<Unit filename="utils.cpp" />
 		<Unit filename="utils.h">
 			<Option target="&lt;{~None~}&gt;" />

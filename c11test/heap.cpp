@@ -77,9 +77,27 @@ int heapify(std::vector<int> &array, int index, int current_size)
         }
     }
     */
-    while(1){
-        int left = index*2+1;
-        int large = ((left+1 <= current_size) && (array[left]<array[left+1]))?left+1:left;
+    int tmp = array[index];
+    int left = index*2+1;
+    int large;
+    for(;left<current_size;){
+        large = ((left+1 < current_size) && (array[left]<array[left+1]))?left+1:left;
+        //std::cout<<"index="<<index<<" large="<<large<<std::endl;
+        if(array[large] > array[index]){
+            //array[index] = array[large];
+            std::swap(array[large], array[index]);
+        }
+        else{
+            //array[large] = tmp;
+            break;
+        }
+        //vector_print(array);
+        index = large;
+        left = index*2+1;
+    }
+    /*
+    while(left <= current_size){
+        large = ((left+1 <= current_size) && (array[left]<array[left+1]))?left+1:left;
         if(array[large] > array[index]){
             std::swap(array[large], array[index]);
         }
@@ -87,7 +105,9 @@ int heapify(std::vector<int> &array, int index, int current_size)
             break;
         }
         index = large;
+        left = index*2+1;
     }
+    */
     return 0;
 }
 
@@ -104,17 +124,14 @@ int heap_sort(std::vector<int> &array, int current_size)
     //vector_print(array);
     int i=0;
     while(current_size>0){
-        std::cout<<"~~~~"<<std::endl;
-        vector_print(array);
         std::swap(array[0], array[current_size-1]);
-        std::cout<<current_size<<std::endl;
+        //std::cout<<"after swap  ";
+        //vector_print(array);
+        //std::cout<<"size: "<<current_size-1<<std::endl;
         heapify(array, 0, --current_size);
-        vector_print(array);
-        std::cout<<"######"<<std::endl;
-        i++;
-        if(i>5){
-            break;
-        }
+        //std::cout<<"after modify ";
+        //vector_print(array);
+
     }
 }
 
